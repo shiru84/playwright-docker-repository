@@ -1,2 +1,13 @@
 # playwright-docker-repository
 my first attempt to run tests in docker from git
+ Terminal:
+ docker run --rm -it \
+  mcr.microsoft.com/playwright:v1.42.1-jammy \
+  bash -c "
+    git clone https://github.com/shiru84/playwright-docker-repository.git &&
+    cd playwright-docker-repository &&
+    npm ci &&
+    npx playwright install --with-deps &&                            
+    npx playwright test e2e/Study/1332.study.spec.ts --project=chromium
+  "
+  
