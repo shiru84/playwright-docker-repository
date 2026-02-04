@@ -1,5 +1,7 @@
 # playwright-docker-repository
-my first attempt to run tests in docker from git
+use --project=firefox for firefox browser
+--project=webkit for safari
+
  Terminal:
  docker run --rm -it \
   mcr.microsoft.com/playwright:v1.42.1-jammy \
