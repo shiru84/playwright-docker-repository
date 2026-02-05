@@ -2,11 +2,11 @@ name: Daily OPTEO EPO2025001-324 (Chromium)
 
 on:
   workflow_dispatch: {}
- schedule:
+  schedule:
   # # 15:20 UK time during BST (late March → late October)
     # - cron: "20 14 * * *"
     # 15:20 UK time during GMT (late October → late March)
-    - cron: "45 15 * * *"
+    - cron: "30 16 * * *"
 
 jobs:
   test:
