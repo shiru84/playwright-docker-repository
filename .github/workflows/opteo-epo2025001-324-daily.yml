@@ -6,7 +6,7 @@ on:
   # # 15:20 UK time during BST (late March → late October)
     # - cron: "20 14 * * *"
     # 15:20 UK time during GMT (late October → late March)
-    - cron: "38 15 * * *"
+    - cron: "45 15 * * *"
 
 jobs:
   test:
