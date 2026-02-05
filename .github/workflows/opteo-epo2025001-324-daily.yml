@@ -1,0 +1,38 @@
+name: Daily OPTEO EPO2025001-324 (Chromium)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # GitHub cron uses UTC.
+    # This runs every day at 14:15 UTC (15:15 UK time in winter; 15:15 UTC in summer would differ).
+    - cron: "0 8 * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run OPTEO test
+        run: npx playwright test e2e/OPTEO/EPO2025001-324.spec.ts --project=chromium
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
