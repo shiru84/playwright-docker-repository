@@ -2,10 +2,11 @@ name: Daily OPTEO EPO2025001-324 (Chromium)
 
 on:
   workflow_dispatch: {}
-  schedule:
-    # GitHub cron uses UTC.
-    # This runs every day at 14:15 UTC (15:15 UK time in winter; 15:15 UTC in summer would differ).
-    - cron: "0 8 * * *"
+ schedule:
+    # 15:20 UK time during BST (late March → late October)
+    - cron: "20 14 * * *"
+    # 15:20 UK time during GMT (late October → late March)
+    - cron: "20 15 * * *"
 
 jobs:
   test:
